@@ -1,0 +1,44 @@
+.main_content, #main_content{
+    text-align: center;
+    width: 300px;
+    height: auto;
+    margin: 25px auto;
+    position: relative;
+}
+.back{
+    float: left;
+}
+.submit{
+    float: right;
+}
+#child, #adult{
+    width: 45%;
+    margin: 3px;
+    
+}
+.button_form{
+    width: 100%;
+    text-align: center;
+}
+.button_form_mini{
+    text-align: center;
+    width: 40%;
+    display: inline-block;
+}
+.button_form_mini p{
+    margin: 0 0 0px 0;
+}
+input{
+    width: 150px;
+    border-radius: 3px;
+    margin: 2px 0px;
+}
+
+
+
+@media only screen and (orientation:landscape) {
+ /* стили для пейзажа */
+}
+@media only screen and (orientation:portrait) {
+ /* стили для портрета */
+}
