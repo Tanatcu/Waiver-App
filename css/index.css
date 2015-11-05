@@ -1,15 +1,12 @@
+body{
+    background: #6495ED;
+}
 .main_content, #main_content{
     text-align: center;
-    width: 300px;
+    width: auto;
     height: auto;
     margin: 25px auto;
     position: relative;
-}
-.back{
-    float: left;
-}
-.submit{
-    float: right;
 }
 #child, #adult{
     width: 45%;
@@ -19,10 +16,12 @@
 .button_form{
     width: 100%;
     text-align: center;
+    height:30px;
 }
+
 .button_form_mini{
     text-align: center;
-    width: 40%;
+    width: 100px;
     display: inline-block;
 }
 .button_form_mini p{
@@ -32,6 +31,10 @@ input{
     width: 150px;
     border-radius: 3px;
     margin: 2px 0px;
+}
+#canvas {
+    border:2px solid #666666;
+    background: #BBD2FA;
 }
 
 

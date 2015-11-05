@@ -8,42 +8,56 @@
     <body>
         <div id="adult_form">
             <div class="main_content">
-            <p>Fill out the form and sign</p>
+            <h3>Fill out the form and sign</h3>
                 <form>
-                    First name<br>
+                    <p>First name</p>
                     <input id="name" type="text">
                     <p>Last Name</p>
                     <input id="surname" type="text">
-                    <p>Today's date</p>
-                    <input id="date" type="date">
-                    <input id="sign" type="text">
+                    <p>Sign</p>
+                    <canvas id="canvas"></canvas>
                 </form>
                 <div class="button_form_mini">
                     <form action="index.html">
-                        <button class="back" type="submit" id="back">Back</button>
-                        <button class="submit" type="submit" id="submit">Submit</button>
+                        <button type="submit" id="back">Back</button>
                     </form>
+                </div>
+                    
+                <div class="button_form_mini">
+                    <button type="submit" id="submit">Submit</button>
                 </div>
             </div>
         </div>
         
+        
+        
         <div id="child_form">
             <div class="main_content">
-            <p>Fill out the form and sign</p>
+            <h3>Fill out the form and sign</h3>
                 <form>
+                    <p>First name of first Parent/Guardian</p>
                     <input type="text">
+                    <p>Last name of first Parent/Guardian</p>
                     <input type="text">
+                    <p>First name of second Parent/Guardian</p>
                     <input type="text">
+                    <p>Last name of second Parent/Guardian</p>
                     <input type="text">
+                    <p>First name of child</p>
                     <input type="text">
+                    <p>Last name of child</p>
                     <input type="text">
-                    <input type="text">
+                    <p>Birthday of child</p>
+                    <input id="birdate" type="date">
                 </form>
                 <div class="button_form_mini">
                     <form action="index.html">
-                        <button class="back" type="submit" id="back1">Back</button>
-                        <button class="submit" type="submit" id="submit1">Submit</button>
+                        <button type="submit" id="back1">Back</button>
                     </form>
+                </div>
+                    
+                <div class="button_form_mini">
+                    <button type="submit" id="submit1">Submit</button>
                 </div>
             </div>
         </div>
