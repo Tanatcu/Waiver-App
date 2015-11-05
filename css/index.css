@@ -16,7 +16,9 @@ body{
 .button_form{
     width: 100%;
     text-align: center;
-    height:30px;
+    height:auto;
+    clear: both;
+    position: relative;
 }
 
 .button_form_mini{
