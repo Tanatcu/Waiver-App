@@ -15,9 +15,9 @@ $(document).ready(function(){
             $("#submit").click(function(){
                 alert("Hello");
             });
-            $("#canvas").mousedown(function(){
+            $("#canvas").bind('touchstart',function(){
                 paint = true;
-                $("#canvas").mousemove(function(e){
+                $("#canvas").bind('touchmove',function(e){
                     if(paint){
                     var canvas= document.getElementById('canvas');
                     ctx = canvas.getContext('2d');
@@ -30,18 +30,24 @@ $(document).ready(function(){
                     var x = e.pageX - elem_left;
                     var y = e.pageY - elem_top;
                     console.log("X: " + x + " Y: " + y);
+                    if(paint){
                     ctx.beginPath();
-                    ctx.moveTo(x-1,y-1);
-                    ctx.lineTo(x,y);
-                    ctx.lineWidth = 3;
-                    ctx.stroke();
+                    ctx.moveTo(x,y);
+                    ctx.lineTo(x+=3,y);
+                    ctx.lineTo(x,y+=3);
+                    ctx.lineTo(x-=3,y);
+                    ctx.lineTo(x,y-=3);
+                    ctx.fill();
+                
+                        
+                    }
                 }
                 });
-                $("#canvas").mouseup(function(){
+                $("#canvas").bind('touchend',function(){
                     paint = false;
-                    
-                    
-                    
+                });
+                $("#canvas").mouseover(function(){
+                    onscroll = false;
                 });
                                 
                 });

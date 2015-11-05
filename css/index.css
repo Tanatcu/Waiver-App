@@ -61,7 +61,9 @@ inline_block_1 label {
 #contact_info {
     clear:right;
 }
-
+#contact_info {
+    width:400px;
+}
 @media only screen and (orientation:landscape) {
  /* стили для пейзажа */
 }
