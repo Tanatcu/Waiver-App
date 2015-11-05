@@ -24,19 +24,20 @@ $(document).ready(function(){
                         e.preventDefault();
                         });
                     }
-                
-                $("#canvas").bind('touchmove',function(e){
-                    
+                $("#canvas").bind('touchmove',function(){
                     if(paint){
                         var canvas= document.getElementById('canvas');
                         ctx = canvas.getContext('2d');
 
-                        var pos = $(this).offset();
-                        var elem_left = pos.left;
-                        var elem_top = pos.top;
-                        var x = e.pageX - elem_left;
-                        var y = e.pageY - elem_top;
-                        console.log("X: " + x + " Y: " + y);
+
+                        var touch=event.targetTouches[0];
+                        var x = (touch.clientX - $(event.target).offset().left);
+                        var y = (touch.clientY - $(event.target).offset().top)+1368;
+                        
+                        
+//                        var x = touch.pageX - elem_left;
+//                        var y = touch.pageY - elem_top;
+                        console.log("X: " + x + " Y: " + y+2000);
                         
                         if(paint){
                             ctx.beginPath();
