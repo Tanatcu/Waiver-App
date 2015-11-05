@@ -1,5 +1,5 @@
 body{
-    background: #6495ED;
+    background: #BBD2FA;
 }
 .main_content, #main_content{
     text-align: center;
@@ -21,7 +21,7 @@ body{
 
 .button_form_mini{
     text-align: center;
-    width: 100px;
+    width: 45%;
     display: inline-block;
 }
 .button_form_mini p{
@@ -34,10 +34,31 @@ input{
 }
 #canvas {
     border:2px solid #666666;
-    background: #BBD2FA;
+    background: #FFFFFF;
 }
-
-
+#release_adult,#release_child {
+    text-align: justify;
+}
+h3 {
+    text-align: center;
+}
+.inline_block {
+    margin: 20px 0 0 0;
+    width:210px;
+    display:inline-block;
+}
+inline_block input {
+    clear:both;
+}
+inline_block_1 label {
+    clear:both;
+}
+.exec {
+    text-align:center;
+}
+#contact_info {
+    clear:right;
+}
 
 @media only screen and (orientation:landscape) {
  /* стили для пейзажа */

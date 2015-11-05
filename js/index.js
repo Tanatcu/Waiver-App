@@ -1,18 +1,33 @@
-var date,day,month,year,ctx;
+var date,
+    day,
+    month,
+    year,
+    ctx,
+    name,
+    surname;
 
 $(document).ready(function(){
-    getDate();
     $("#adult").click(function(){ 
-      $("#main_page").load('forms.html #adult_form');
-      $("#canvas").mouseover(drawSign());
-      
-    });
-    $("#child").click(function(){
-      $("#main_page").load('forms.html #child_form');
+        $("#main_page").load('forms.html #release_adult');
+        setTimeout(function(){
+            $("#submit").click(function(){
+                alert("Hello");
+            });
+            $("#canvas").mousedown(drawSign);
+        },
+    100);
+                
+
     });
     
-
+    $("#child").click(function(){
+        $("#main_page").load('forms.html #release_child');
+        
+        
+    });
 });
+
+
 function drawSign(){
     var canvas= document.getElementById('canvas');
     ctx = canvas.getContext('2d');
@@ -25,6 +40,16 @@ function drawSign(){
 //    ctx.moveTo(2,1);
 //    ctx.lineTo(3,2);
 //    ctx.stroke();
+}
+
+function getData(){
+    name = document.getElementById("name").value;
+    surname = document.getElementById("surname").value;
+    
+    //var canvas = document.getElementById("canvas");
+     
+    console.log(name+" "+surname);
+    
 }
 
 function getDate(){
