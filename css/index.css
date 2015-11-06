@@ -1,6 +1,9 @@
 body{
     background: #BBD2FA;
 }
+#login_form {
+    margin-top: 100px;
+}
 .main_content, #main_content{
     text-align: center;
     width: auto;
@@ -16,9 +19,28 @@ body{
 .button_form{
     width: 100%;
     text-align: center;
-    height:auto;
+    //height:50px;
     clear: both;
     position: relative;
+}
+#login_form .button_form input {
+    margin: 0 0 40px 0;
+    height:30px;
+    border-radius:10px;
+    border:2px solid #666666;
+}
+#adult_form .button_form input {
+    margin:0 0 20px 0;
+}
+.button_form label {
+    margin:0px;
+}
+.button_form button {
+    margin:20px 0;
+    height:30px;
+    width:150px;
+    border-radius:10px;
+    border:2px solid #666666;
 }
 
 .button_form_mini{
@@ -61,8 +83,12 @@ inline_block_1 label {
 #contact_info {
     clear:right;
 }
-#contact_info {
-    width:400px;
+#contact_info, #printed_name {
+    width:90%;
+}
+#clear img{
+    width:30px;
+    height:auto;
 }
 @media only screen and (orientation:landscape) {
  /* стили для пейзажа */

@@ -6,10 +6,23 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
+        
+        <div id="main_content">
+                <h3>Welcome to the application Waiver App</h3>
+                <p>Select the form, according to your age</p>
+                
+                <div class="button_form">
+                    <button id="adult">21 Years or older</button>
+                </div>
+                    <div class="button_form">
+                        <button id="child">Parent Form</button>
+                    </div>
+            </div>
+        
         <div id="release_adult">
                 <h3>RELEASE, HOLD HARMLESS AND INDEMNIFICATION AGREEMENT</h3>
                 <form>
-                    <p>I, <input id="name_surname" type="text">,
+                    <p>I, <input id="name_surname" type="text" placeholder="Full name">,
 hereby certify that I am over the age of eighteen (18) years of age and am of sound mind and memory at the time
      of the execution of this Release.
 WHEREAS the GREENSBORO SCIENCE CENTER (hereinafter "GSC") has available SkyWild Aerial Adventures for visitors at the GSC; and
@@ -61,21 +74,16 @@ AT THE GSC.</h4>
                     <div class="exec">
                         <form>
                         <div>EXECUTED this 
-                            <input id="day" style="width:30px;" type="text">
-                            day of 
-                            <input id="month" type="text">
-                            , 20
-                            <input id="year" style="width:30px;" type="text">.
+                            <input id="date" type="date">.
                         </div>
                             <div>
                         <div class="button_form">
-                            <input id="printed_name" type="text">
-                            <p>Printed Name</p>
+                            <input id="printed_name" type="text" placeholder="Printed Name">
                         </div>
                             </div>
                         <div class="button_form">
                             <canvas id="canvas" height="300"></canvas>
-                            <p>Signature</p>
+                            <div id="clear"><img alt="clean" src="res/clean.png" /></div>
                         </div>
                         </form>
                     </div>
@@ -97,7 +105,7 @@ AT THE GSC.</h4>
             <h3>RELEASE, HOLD HARMLESS AND INDEMNIFICATION AGREEMENT</h3>
             
             <form><p>I/We,<input id="name_surname" type="text">, the parent(s)/legal guardian(s) of <input id="child_name" type="text">, whose date of 
-                    birth is <input type="date"> (hereinafter "minor"), hereby certify that I/we am/are over the age of eighteen (18) years of age, am/are 
+                    birth is <input id="birth_day" type="date"> (hereinafter "minor"), hereby certify that I/we am/are over the age of eighteen (18) years of age, am/are 
                     of sound mind and memory at the time of execution of this Release.
 WHEREAS the GREENSBORO SCIENCE CENTER (hereinafter "GSC") has available SkyWild Aerial Adventures for visitors at the GSC; and
 WHEREAS, the GSC agrees to allow the minor to participate in those SkyWild Aerial Adventures in consideration of both the payment of the fees for the same 
@@ -152,27 +160,22 @@ REFUSE TO LET YOUR CHILD PARTICIPATE IF YOU DO NOT SIGN THIS RELEASE.</h4>
             </div>
             <div class="exec">
                 <form>
-                <label for="day">EXECUTED this </label>
-                <input id="day" style="width:30px;" type="text">
-                <label for="month">day of </label>
-                <input id="month" type="text">
-                , <label for="year">20</label>
-                <input id="year" style="width:30px;" type="text">.
+                EXECUTED this 
+                            <input id="date" type="date">.
 
                 <div>
-                    <div class="inline_block">
-                        <input id="printed_name" type="text">
-                        <p>Parent/Guardian Printed Name</p>
+                    <div class="button_form">
+                        <input id="printed_name" type="text" placeholder="Parent/Guardian Printed Name">
                     </div>
 
-                    <div class="inline_block">
-                        <canvas id="canvas" width="200" height="100"></canvas>
+                    <div class="button_form">
+                        <canvas id="canvas" width="300" height="300"></canvas>
+                        <div id="clear"><img alt="clean" src="res/clean.png" /></div>
                         <p>Parent/Guardian Signature</p>
                     </div>
                 </div>
-                <div class="inline_block_1">
-                        <input id="contact_info" type="text">
-                        <p>Parents Contact Information (Cell/home#)</p>
+                <div class="button_form">
+                    <input id="contact_info" type="text" placeholder="Parents Contact Information (Cell/home#)">
                 </div>
                 </form>
                 
