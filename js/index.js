@@ -2,7 +2,6 @@ var ctx,
     canvas,
     surname;
     var paint=false;
-    var scroll;
     var name,cname,date,bdate,print,sign,contact;
 
 $(document).ready(function(){
@@ -37,55 +36,48 @@ $(document).ready(function(){
                     });
                     
                     ////////////////////////////////////
-                    $("#canvas").bind('touchstart',function(){
+                    $("#canvas").bind('touchstart',function(e){
                         paint = true;
-                        scroll = false;
-                            if(!scroll){
-                                $('body').bind('touchmove', function(e){
-                                e.preventDefault();
-                                });
-                            }
+                        e.preventDefault();
+                        
+                        canvas= document.getElementById('canvas');
+                        ctx = canvas.getContext('2d');
+                        
+                        var touch=event.targetTouches[0];
+                        var x = (touch.pageX - $(event.target).offset().left);
+                        var y = (touch.pageY - $(event.target).offset().top);
+                        
+                        ctx.lineWidth = 3;
+                        ctx.beginPath();
+                        ctx.moveTo(x,y);
+                        
                         $("#canvas").bind('touchmove',function(){
                             if(paint){
-                                canvas= document.getElementById('canvas');
-                                ctx = canvas.getContext('2d');
-
-
                                 var touch=event.targetTouches[0];
                                 var x = (touch.pageX - $(event.target).offset().left);
                                 var y = (touch.pageY - $(event.target).offset().top);
-
-
                                 
 
-                                if(paint){
-                                    ctx.beginPath();
-                                    ctx.arc(x,y,7,0,Math.PI*2);
-                                    ctx.moveTo(x,y);
-                                    var xx = x;
-                                    var yy = y;
-                                    ctx.lineTo(xx,yy);
-                                    ctx.fill();
+                                
+                                ctx.lineTo(x,y);
+                                ctx.stroke();
                                     
-                                    console.log("X: " + x + " Y: " + y);
-                                }
+                                console.log("X: " + x + " Y: " + y);
                             }
                         });
                         $("#canvas").bind('touchend',function(){
                             paint = false;
-                            scroll = true;
                             $('body').unbind('touchmove');
 
                         });
 
                     });
 
-
-
                 },100);
 
-
             });
+
+
 
             $("#child").click(function(){
                 $("#main_page").load('forms.html #release_child');
@@ -94,6 +86,9 @@ $(document).ready(function(){
                         $("#clear").click(function(){
                            ctx.clearRect(0, 0, canvas.width, canvas.height); 
                         });
+                        
+                        ///////////////////////////////////////////////////////
+                        
                         $("#submit").click(function(){
                             
                             name = document.getElementById("name_surname").value;
@@ -107,47 +102,43 @@ $(document).ready(function(){
                             //getData(name,cname,date,bdate,print,sign,contact);
                             console.log(name+" "+cname+" "+date+" "+bdate+" "+print+" "+sign+" "+contact);
                         });
+                        
+                        ///////////////////////////////////////////////////////////////
 
-                        $("#canvas").bind('touchstart',function (){
+                        $("#canvas").bind('touchstart',function (e){
                             paint = true;
-                            scroll = false;
-                                if(!scroll){
-                                    $('body').bind('touchmove', function(e){
-                                    e.preventDefault();
-                                    });
-                                }
-                            $("#canvas").bind('touchmove',function(){
-                                if(paint){
-                                    canvas= document.getElementById('canvas');
-                                    ctx = canvas.getContext('2d');
+                        e.preventDefault();
+                        
+                        canvas= document.getElementById('canvas');
+                        ctx = canvas.getContext('2d');
+                        
+                        var touch=event.targetTouches[0];
+                        var x = (touch.pageX - $(event.target).offset().left);
+                        var y = (touch.pageY - $(event.target).offset().top);
+                        
+                        ctx.lineWidth = 3;
+                        ctx.beginPath();
+                        ctx.moveTo(x,y);
+                        
+                        $("#canvas").bind('touchmove',function(){
+                            if(paint){
+                                var touch=event.targetTouches[0];
+                                var x = (touch.pageX - $(event.target).offset().left);
+                                var y = (touch.pageY - $(event.target).offset().top);
+                                
 
+                                
+                                ctx.lineTo(x,y);
+                                ctx.stroke();
+                                    
+                                console.log("X: " + x + " Y: " + y);
+                            }
+                        });
+                        $("#canvas").bind('touchend',function(){
+                            paint = false;
+                            $('body').unbind('touchmove');
 
-                                    var touch=event.targetTouches[0];
-                                    var x = (touch.pageX - $(event.target).offset().left);
-                                    var y = (touch.pageY - $(event.target).offset().top);
-
-
-                                //var x = e.clientX - xx;
-                                //var y = e.clientY - yy;
-
-                                    if(paint){
-                                        ctx.beginPath();
-                                        ctx.moveTo(x,y);
-                                        ctx.lineTo(x+=3,y);
-                                        ctx.lineTo(x,y+=3);
-                                        ctx.lineTo(x-=3,y);
-                                        ctx.lineTo(x,y-=3);
-                                        ctx.fill();
-                                        console.log("X: " + x + " Y: " + y);
-                                    }
-                                }
-                            });
-                            $("#canvas").bind('touchend',function(){
-                                paint = false;
-                                scroll = true;
-                                $('body').unbind('touchmove');
-
-                            });
+                        });
 
                         });
 

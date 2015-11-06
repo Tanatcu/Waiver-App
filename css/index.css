@@ -12,8 +12,7 @@ body{
     position: relative;
 }
 #child, #adult{
-    width: 45%;
-    margin: 3px;
+    width: 60%;
     
 }
 .button_form{
@@ -24,8 +23,8 @@ body{
     position: relative;
 }
 #login_form .button_form input {
-    margin: 0 0 40px 0;
-    height:30px;
+    margin: 0 0 60px 0;
+    height:45px;
     border-radius:10px;
     border:2px solid #666666;
 }
@@ -37,16 +36,21 @@ body{
 }
 .button_form button {
     margin:20px 0;
-    height:30px;
+    height:50px;
     width:150px;
     border-radius:10px;
     border:2px solid #666666;
 }
-
 .button_form_mini{
     text-align: center;
     width: 45%;
     display: inline-block;
+}
+.button_form_mini button {
+    width: 90px;
+    border-radius: 10px;
+    height: 30px;
+    border: 2px groove #666666;
 }
 .button_form_mini p{
     margin: 0 0 0px 0;
@@ -55,6 +59,7 @@ input{
     width: 150px;
     border-radius: 3px;
     margin: 2px 0px;
+    border: 2px groove #666666;
 }
 #canvas {
     border:2px solid #666666;
