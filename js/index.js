@@ -103,6 +103,7 @@ $(document).ready(function(){
                             "contact" : document.getElementById("contact_info").value,
                             "sign" : document.getElementById("canvas").toDataURL()};
                             
+                            
                         var json = JSON.stringify(obj);
                         alert(json);
                             //console.log(name+" "+cname+" "+date+" "+bdate+" "+print+" "+sign+" "+contact);
