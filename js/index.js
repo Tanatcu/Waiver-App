@@ -7,12 +7,14 @@ var ctx,
 $(document).ready(function(){
  ////////////////////////////////////////////////////   
     
-    $("#login_button").click(function(){
-        $("#main_page").load('forms.html #main_content');
+    $("#login_button").click(back);
         
-        setTimeout(function(){
+        
+        function back(){
+            $("#main_page").load('forms.html #main_content');
+            setTimeout(function(){
             
-            $("#adult").click(function(){
+            $("#adult").click(function adult(){
                 $("#main_page").load('forms.html #release_adult');
 
                 setTimeout(function(){
@@ -20,18 +22,20 @@ $(document).ready(function(){
                        ctx.clearRect(0, 0, canvas.width, canvas.height); 
                     });
                     
+                    $("#back").click( back );
+                    
                     //////////////////////////////////
                     $("#submit").click(function(){
-                        name = document.getElementById("name_surname").value;
-                        //cname = document.getElementById("child_name").value;
-                        date = document.getElementById("date").value;
-                       //bdate = document.getElementById("birth_day").value;
-                        print = document.getElementById("printed_name").value;
-                        //contact = document.getElementById("contact_info").value;
-                        sign = document.getElementById("canvas").toDataURL();
-                        //getData(name,cname,date,bdate,print,sign,contact);
+                        
+                        var obj = {"name" : document.getElementById("name_surname").value,
+                                    "date" : document.getElementById("date").value,
+                                    "print" : document.getElementById("printed_name").value,
+                                    "sign" : document.getElementById("canvas").toDataURL()};
+                        var json = JSON.stringify(obj);
+                        alert(json);
                         console.log(name+" "+date+" "+print+" "+sign);
                         
+                        adult();
                         
                     });
                     
@@ -76,10 +80,7 @@ $(document).ready(function(){
                 },100);
 
             });
-
-
-
-            $("#child").click(function(){
+            $("#child").click(function child(){
                 $("#main_page").load('forms.html #release_child');
 
                 setTimeout(function(){
@@ -87,20 +88,25 @@ $(document).ready(function(){
                            ctx.clearRect(0, 0, canvas.width, canvas.height); 
                         });
                         
+                        $("#back").click( back );
+                        
                         ///////////////////////////////////////////////////////
                         
                         $("#submit").click(function(){
                             
-                            name = document.getElementById("name_surname").value;
-                            cname = document.getElementById("child_name").value;
-                            date = document.getElementById("date").value;
-                            bdate = document.getElementById("birth_day").value;
-                            print = document.getElementById("printed_name").value;
-                            contact = document.getElementById("contact_info").value;
-                            sign = document.getElementById("canvas").toDataURL();
+                        var obj = {
+                            "name" : document.getElementById("name_surname").value,
+                            "cname" : document.getElementById("child_name").value,
+                            "date" : document.getElementById("date").value,
+                            "bdate" : document.getElementById("birth_day").value,
+                            "print" : document.getElementById("printed_name").value,
+                            "contact" : document.getElementById("contact_info").value,
+                            "sign" : document.getElementById("canvas").toDataURL()};
                             
-                            //getData(name,cname,date,bdate,print,sign,contact);
-                            console.log(name+" "+cname+" "+date+" "+bdate+" "+print+" "+sign+" "+contact);
+                        var json = JSON.stringify(obj);
+                        alert(json);
+                            //console.log(name+" "+cname+" "+date+" "+bdate+" "+print+" "+sign+" "+contact);
+                            child();
                         });
                         
                         ///////////////////////////////////////////////////////////////
@@ -145,24 +151,9 @@ $(document).ready(function(){
 
 
                     },100);
-
             });    
             
-        },100);
-        
-        
-        
-        
-        
-        
-        
-    });
+        },100);}
     
 ////////////////////////////////////////////////////////////////////////////
 });
-
-//function getData(name,cname,date,bdate,print,sign,contact){
-//    
-//    
-//    return name,cname,date,bdate,print,sign,contact; 
-//}
