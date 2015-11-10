@@ -10,7 +10,7 @@ $(document).ready(function(){
     $("#login_button").click(function(){
         login = $("#login").val();
         password = document.getElementById("password").value;
-        alert(login+"<=>"+password);
+        //alert(login+"<=>"+password);
         back();
     });
         
