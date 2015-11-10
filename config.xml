@@ -23,36 +23,32 @@
     
     <platform name="android">
         <allow-intent href="market:*" />
-        
-        <gap:splash src="res/screen/splash.png" gap:platform="android" />
-        
-        <icon gap:platform="android" gap:qualifier="ldpi"
-        src=" res/icon/android/icon-36-ldpi.png" />
-        <icon gap:platform="android" gap:qualifier="mdpi"
-        src=" res/icon/android/icon-48-mdpi.png" />
-        <icon gap:platform="android" gap:qualifier="hdpi"
-        src=" res/icon/android/icon-72-hdpi.png" />
-        <icon gap:platform="android" gap:qualifier="xhdpi"
-        src=" res/icon/android/icon-96-xhdpi.png" />
-        
     </platform>
+    <gap:splash src="res/screen/splash.png" gap:platform="android" />
+        
+    <icon gap:platform="android" gap:qualifier="ldpi"
+    src=" res/icon/android/icon-36-ldpi.png" />
+    <icon gap:platform="android" gap:qualifier="mdpi"
+    src=" res/icon/android/icon-48-mdpi.png" />
+    <icon gap:platform="android" gap:qualifier="hdpi"
+    src=" res/icon/android/icon-72-hdpi.png" />
+    <icon gap:platform="android" gap:qualifier="xhdpi"
+    src=" res/icon/android/icon-96-xhdpi.png" />
     
     <platform name="ios">
-        
-        <gap:splash src="res/screen/splash.png" gap:platform="ios" />
-        
-        <icon gap:platform="ios" gap:qualifier="ldpi"
-        src=" res/icon/ios/icon-36-ldpi.png" />
-        <icon gap:platform="ios" gap:qualifier="mdpi"
-        src=" res/icon/ios/icon-48-mdpi.png" />
-        <icon gap:platform="ios" gap:qualifier="hdpi"
-        src=" res/icon/ios/icon-72-hdpi.png" />
-        <icon gap:platform="ios" gap:qualifier="xhdpi"
-        src=" res/icon/ios/icon-96-xhdpi.png" />
-        
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
     </platform>
+    <gap:splash src="res/screen/splash.png" gap:platform="ios" />
+        
+    <icon gap:platform="ios" gap:qualifier="ldpi"
+    src=" res/icon/ios/icon-36-ldpi.png" />
+    <icon gap:platform="ios" gap:qualifier="mdpi"
+    src=" res/icon/ios/icon-48-mdpi.png" />
+    <icon gap:platform="ios" gap:qualifier="hdpi"
+    src=" res/icon/ios/icon-72-hdpi.png" />
+    <icon gap:platform="ios" gap:qualifier="xhdpi"
+    src=" res/icon/ios/icon-96-xhdpi.png" />
     
     <engine name="android" spec="~4.1.1" />
 </widget>
