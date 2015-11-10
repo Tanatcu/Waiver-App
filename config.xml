@@ -16,7 +16,6 @@
     <gap:splash src="res/screen/splash.png"/>
 
     <preference name="orientation" value="portaint"/>
-    <preference name="phonegap-version" value="cli-5.1.1"/>
     
     <icon gap:platform="android" gap:qualifier="ldpi" src="res/icon/android/icon-36-ldpi.png"/>
     <icon gap:platform="android" gap:qualifier="mdpi" src="res/icon/android/icon-48-mdpi.png"/>
