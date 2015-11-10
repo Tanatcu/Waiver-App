@@ -10,13 +10,16 @@
     <author email="ruslan" href="">
     </author>
     <content src="index.html" />
-    
+    <access origin="*" />
     <plugin name="cordova-plugin-whitelist" version="1" />
     
     <gap:plugin name="org.apache.cordova.splashscreen" />
+    <preference name="Splashscreen" value="screen" />
+    <preference name="SplashScreenDelay" value="4000" />
+    
     <gap:splash src="res/screen/splash.png"/>
     
-    <access origin="*" />
+    
 
     
         
