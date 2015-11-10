@@ -19,10 +19,12 @@
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
     
-    <gap:splash src="res/screen/splash.png" /> 
+    
     
     <platform name="android">
         <allow-intent href="market:*" />
+        
+        <gap:splash src="res/screen/splash.png" gap:platform="android" />
         
         <icon gap:platform="android" gap:qualifier="ldpi"
         src=" res/icon/android/icon-36-ldpi.png" />
@@ -36,6 +38,8 @@
     </platform>
     
     <platform name="ios">
+        
+        <gap:splash src="res/screen/splash.png" gap:platform="ios" />
         
         <icon gap:platform="ios" gap:qualifier="ldpi"
         src=" res/icon/ios/icon-36-ldpi.png" />
