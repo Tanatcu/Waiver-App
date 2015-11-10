@@ -13,8 +13,8 @@
     
     <plugin name="cordova-plugin-whitelist" version="1" />
     
-    <splash src="res/screen/splash.png" />
-    <gap:plugin name="org.apache.cordova.splashscreen" />
+<!--    <splash src="res/screen/splash.png" />
+    <gap:plugin name="org.apache.cordova.splashscreen" />-->
     <gap:splash src="res/screen/splash.png"/>
     
     <access origin="*" />
