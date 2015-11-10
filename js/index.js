@@ -2,12 +2,17 @@ var ctx,
     canvas,
     surname;
     var paint=false;
-    var name,cname,date,bdate,print,sign,contact;
+    var name,cname,date,bdate,print,sign,contact,login,password;
 
 $(document).ready(function(){
  ////////////////////////////////////////////////////   
     
-    $("#login_button").click(back);
+    $("#login_button").click(function(){
+        login = $("#login").val();
+        password = document.getElementById("password").value;
+        alert(login+"<=>"+password);
+        back();
+    });
         
         
         function back(){
@@ -27,14 +32,12 @@ $(document).ready(function(){
                     //////////////////////////////////
                     $("#submit").click(function(){
                         
-                        var obj = {"name" : document.getElementById("name_surname").value,
-                                    "date" : document.getElementById("date").value,
-                                    "print" : document.getElementById("printed_name").value,
+                        var obj = {"name" : $("#name_surname").val(),
+                                    "date" : $("#date").val(),
+                                    "print" : $("#printed_name").val(),
                                     "sign" : document.getElementById("canvas").toDataURL()};
                         var json = JSON.stringify(obj);
                         alert(json);
-                        console.log(name+" "+date+" "+print+" "+sign);
-                        
                         adult();
                         
                     });
@@ -95,18 +98,20 @@ $(document).ready(function(){
                         $("#submit").click(function(){
                             
                         var obj = {
-                            "name" : document.getElementById("name_surname").value,
-                            "cname" : document.getElementById("child_name").value,
-                            "date" : document.getElementById("date").value,
-                            "bdate" : document.getElementById("birth_day").value,
-                            "print" : document.getElementById("printed_name").value,
-                            "contact" : document.getElementById("contact_info").value,
+                            "name" : $("#name_surname").val(),
+                            "cname" : $("#child_name").val(),
+                            "date" : $("#date").val(),
+                            "bdate" : $("#birth_day").val(),
+                            "print" : $("#printed_name").val(),
+                            "contact" : $("#contact_info").val(),
                             "sign" : document.getElementById("canvas").toDataURL()};
                             
                             
                         var json = JSON.stringify(obj);
                         alert(json);
-                            //console.log(name+" "+cname+" "+date+" "+bdate+" "+print+" "+sign+" "+contact);
+                        //$.ajax({
+                            
+                        //});
                             child();
                         });
                         
