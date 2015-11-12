@@ -6,20 +6,21 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        
-        <div id="main_content">
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////        
+        <div id="select_button">
                 <h3>Welcome to the application Waiver App</h3>
                 <p>Select the form, according to your age</p>
                 
                 <div class="button_form">
                     <button id="adult">21 Years or older</button>
                 </div>
-                    <div class="button_form">
-                        <button id="child">Parent Form</button>
-                    </div>
+                <div class="button_form">
+                    <button id="child">Parent Form</button>
+                </div>
+                
             </div>
-        
-        <div id="release_adult">
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////        
+        <div id="release_adult">            
                 <h3>RELEASE, HOLD HARMLESS AND INDEMNIFICATION AGREEMENT</h3>
                 <form>
                     <p>I, <input id="name_surname" type="text" placeholder="Full name">,
@@ -71,44 +72,42 @@ EXECUTION OF THIS AGREEMENT AND AGREEING TO BE BOUND BY THE TERMS HEREOF, THE GS
 AT THE GSC.</h4>
                 </form>
 
-                    <div class="exec">
+                    
                         <form>
-                        <div>EXECUTED this 
-                            <input id="date" type="date">.
-                        </div>
+                        EXECUTED this <input id="date" type="date">
                             <div>
                         <div class="button_form">
                             <input id="printed_name" type="text" placeholder="Printed Name">
                         </div>
                             </div>
                         <div class="button_form">
-                            <canvas id="canvas" height="300"></canvas>
-                            <div id="clear"><img alt="clean" src="res/clean.png" /></div>
+                            <canvas id="canvas" height="150"></canvas>
                         </div>
+                            
                         </form>
-                    </div>
-               
-
-                <div class="button_form_mini">
-                        <button type="submit" id="back">Back</button>
-                </div>
                     
+               
+                <div class="button_form_mini">
+                    <button type="submit" id="clear">Clear</button>
+                </div>
                 <div class="button_form_mini">
                     <button type="submit" id="submit">Submit</button>
                 </div>
         </div>
-            
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////          
         <div id="release_child">
             <div id="text">
+                
             <h3>RELEASE, HOLD HARMLESS AND INDEMNIFICATION AGREEMENT</h3>
             
-            <form><p>I/We,<input id="name_surname" type="text">, the parent(s)/legal guardian(s) of <input id="child_name" type="text">, whose date of 
+            <form><p>I/We,<input id="name_surname" type="text" placeholder="Full name of parents">, the parent(s)/legal guardian(s) 
+                    of <input id="child_name" type="text" placeholder="Full name of child">, whose date of 
                     birth is <input id="birth_day" type="date"> (hereinafter "minor"), hereby certify that I/we am/are over the age of eighteen (18) years of age, am/are 
                     of sound mind and memory at the time of execution of this Release.
 WHEREAS the GREENSBORO SCIENCE CENTER (hereinafter "GSC") has available SkyWild Aerial Adventures for visitors at the GSC; and
 WHEREAS, the GSC agrees to allow the minor to participate in those SkyWild Aerial Adventures in consideration of both the payment of the fees for the same 
 and my/our execution of this Release on behalf of the minor as his/her parent(s)/legal guardian(s) and agreeing to be bound by its terms.
-NOW, THEREFORE, IN CONSIDERATION of the foregoing and the minor being allowed to participate in such activities, I/we hereby agree as follows:</p></form>
+NOW, THEREFORE, IN CONSIDERATION of the foregoing and the minor being allowed to participate in such activities, I/we hereby agree as follows:</p>
 <p>(1) I am aware of and fully understand the inherent dangers involved in participating in the SkyWild Aerial Adventures provided by the GSC, including 
     the risk of death and/or personal injury or damage to myself, other persons and/or my property or the property of others while participating in such 
     activities or having my property at the site of such activities. I may not be covered under insurance of the GSC. I freely and voluntarily execute 
@@ -141,7 +140,7 @@ well-founded.</p>
 North Carolina. If any portion of this Release is found or declared to be invalid or unenforceable, such invalidity shall not affect the remainder of 
 this Release not found to be invalid and the remainder of this Release shall remain in full force and effect.</p>
 <p>(9) I authorize the GSC to administer all first aid measures I may need, including the decision to have me transported to a hospital, all of which will 
-    be done at my expense.</p>
+    be done at my expense.</p></form>
 <h4>(10) BY EXECUTING THIS RELEASE, I/WE ACKNOWLEDGE THAT I/WE HAVE READ THIS RELEASE, UNDERSTAND THE CONTENTS HEREOF, HAVE BEEN ADVISED AND HAD THE 
 OPPORTUNITY TO SEEK INDEPENDENT COUNSEL OF MY/OUR CHOICE AND CERTIFY THAT I/WE HAVE FREELY AND VOLUNTARILY EXECUTED THIS RELEASE. I/WE FURTHER 
 ACKNOWLEDGE THAT, BUT FOR THE EXECUTION OF THIS AGREEMENT AND AGREEING TO BE BOUND BY THE TERMS HEREOF, THE GSC WOULD NOT AUTHORIZE THE MINOR TO 
@@ -158,37 +157,47 @@ REFUSE TO LET YOUR CHILD PARTICIPATE IF YOU DO NOT SIGN THIS RELEASE.</h4>
             </div>
             <div class="exec">
                 <form>
-                EXECUTED this 
-                            <input id="date" type="date">.
+                EXECUTED this <input id="date" type="date">
 
                 <div>
                     <div class="button_form">
                         <input id="printed_name" type="text" placeholder="Parent/Guardian Printed Name">
                     </div>
-
+                    
                     <div class="button_form">
-                        <canvas id="canvas" width="300" height="300"></canvas>
-                        <div id="clear"><img alt="clean" src="res/clean.png" /></div>
+                        <input id="contact_info" type="text" placeholder="Parents Contact Information (Cell/home#)">
                     </div>
+                    
+                    <div class="button_form">
+                        <canvas id="canvas" height="150"></canvas>
+                        
+                    </div>
+                    
                 </div>
-                <div class="button_form">
-                    <input id="contact_info" type="text" placeholder="Parents Contact Information (Cell/home#)">
-                </div>
+                
                 </form>
                 
                     
 
 
             
-                <div class="button_form_mini">
-                        <button type="submit" id="back">Back</button>
-                </div>
+                
                     
+                <div class="button_form_mini">
+                    <button type="submit" id="clear">Clear</button>
+                </div>
                 <div class="button_form_mini">
                     <button type="submit" id="submit">Submit</button>
                 </div>
             </div>
 
         </div>
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        <div id="login_form">
+                 
+                <div class="button_form"><input id="login" type="text" placeholder="Login"></div>
+                <div class="button_form"><input id="password" type="password" placeholder="Password"></div>
+                <div class="button_form_login"><button id="login_button">Login</button></div>
+            </div>
     </body>
 </html>
