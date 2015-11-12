@@ -1,148 +1,129 @@
-var ctx,
-    canvas,
-    surname;
-    var paint=false;
-    var name,cname,date,bdate,print,sign,contact,login,password,test;
+var ctx, canvas, surname;
+var paint = false;
+var name, cname, date, bdate, print, sign, contact, log, password, test, par;
 
-$(document).ready(function(){
-    $("#main_page").load('forms.html #login_form',function(){
-    
-        $("#login_button").click(function(){
-            login();
-           
-            $('#main_page').load('forms.html #select_button',function(){
-                getButton("logout");
-                //$('#logout').click(function(){
-                //    window.location.reload();
-                //    delButton();
-                //});
-                
-                $('#adult').click(function(){
-                    $('#main_page').load('forms.html #release_adult',function(){
-                        renButton("back");
-                        $("#canvas").bind('touchstart',drow);
-                        $('#clear').click(clear);
-                        $("#submit").click(submit_adult);
-                         $('#back').click(st);
-                    });
-                });
-                
-                $('#child').click(function(){
-                    $('#main_page').load('forms.html #release_child',function(){
-                        renButton("back");
-                        $('#back').click(st);
-                        $("#canvas").bind('touchstart',drow);
-                        $('#clear').click(clear);
-                        $("#submit").click(submit_child);
-                    });
-                });
-            });
-        });
-    });
+$(document).ready(function () {
+load('login_form');
 });
 
-function login(){
-    login = $("#login").val();
-    password = document.getElementById("password").value;
-    console.log(login+" <=> "+password);
-}
-function getButton(text){
-   test = $('<button/>',
-    {
-        text: text,
-        id: text
-    });
 
-    $("#header").append(test); 
+$(document).on('click', '.data', function () {
+    par = $(this).val();
+    load(par);
+    renButton('back','select_button');
+});
+$(document).on('click', '#login_button', function () {
+    par = 0;
+    par = $(this).val();
+    load(par);
+    login();
+    getButton('logout','logout','login_form');
+});
+$(document).on('click', '#logout', function () {
+    par = $(this).val();
+    load(par);
+    delButton();
+});
+$(document).on('click','#back',function(){
+    par = 0;
+    par = $(this).val();
+    load(par);
+    renButton('logout','login_form');
+});
+$(document).on('click','.submit',function(){
+    par = $(this).val();
+    if(par==="adult"){
+        submit_adult();
+    }else{
+        submit_child();
+    }  
+});
+$(document).on('click','.clear',clear);
+$(document).on('touchstart', '#canvas', drow);
+function load(par) {
+    $('#main_page').load('forms.html #'+par+'');
 }
-function renButton(text){
-    $("#header button").prop('id',text); 
-    $("#header button").text(text); 
+
+function login() {
+    log = $("#login").val();
+    password = document.getElementById("password").value;
+    console.log(log + " <=> " + password);
 }
-function delButton(){
-    $("#header").remove(test); 
+function getButton(text,clas,val) {
+    test = $('<button/>',
+            {
+                text: text,
+                class:clas,
+                value:val,
+                id: text
+            });
+
+    $("#header").append(test);
+    return true;
 }
-function clear(){
-    ctx.clearRect(0, 0, canvas.width, canvas.height); 
+function renButton(text,sit) {
+    $("#header button").prop('value', sit);
+    $("#header button").prop('id', text);
+    $("#header button").text(text);
 }
-function submit_adult(){
-    var obj = {"name" : $("#name_surname").val(),
-                "date" : $("#date").val(),
-                "print" : $("#printed_name").val(),
-                "sign" : document.getElementById("canvas").toDataURL()};
+function delButton() {
+    $('#logout').remove();
+}
+function clear() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
+function submit_adult() {
+    var obj = {"name": $("#name_surname").val(),
+        "date": $("#date").val(),
+        "print": $("#printed_name").val(),
+        "sign": document.getElementById("canvas").toDataURL()};
     var json = JSON.stringify(obj);
     console.log(json);
- }
- function submit_child(){
+}
+function submit_child() {
     var obj = {
-        "name" : $("#name_surname").val(),
-        "cname" : $("#child_name").val(),
-        "date" : $("#date").val(),
-        "bdate" : $("#birth_day").val(),
-        "print" : $("#printed_name").val(),
-        "contact" : $("#contact_info").val(),
-        "sign" : document.getElementById("canvas").toDataURL()};
+        "name": $("#name_surname").val(),
+        "cname": $("#child_name").val(),
+        "date": $("#date").val(),
+        "bdate": $("#birth_day").val(),
+        "print": $("#printed_name").val(),
+        "contact": $("#contact_info").val(),
+        "sign": document.getElementById("canvas").toDataURL()};
 
     var json = JSON.stringify(obj);
-        console.log(json);
+    console.log(json);
 }
-function drow(e){
+
+
+
+
+function drow(e) {
     paint = true;
     e.preventDefault();
 
-    canvas= document.getElementById('canvas');
+    canvas = document.getElementById('canvas');
     ctx = canvas.getContext('2d');
 
-    var touch=event.targetTouches[0];
+    var touch = event.targetTouches[0];
     var x = (touch.pageX - $(event.target).offset().left);
     var y = (touch.pageY - $(event.target).offset().top);
 
     ctx.lineWidth = 3;
     ctx.beginPath();
-    ctx.moveTo(x,y);
+    ctx.moveTo(x, y);
 
-    $("#canvas").bind('touchmove',function(){
-        if(paint){
-            var touch=event.targetTouches[0];
+    $("#canvas").bind('touchmove', function () {
+        if (paint) {
+            var touch = event.targetTouches[0];
             var x = (touch.pageX - $(event.target).offset().left);
             var y = (touch.pageY - $(event.target).offset().top);
 
-            ctx.lineTo(x,y);
+            ctx.lineTo(x, y);
             ctx.stroke();
         }
     });
-    
-    $("#canvas").bind('touchend',function(){
+    $("#canvas").bind('touchend', function () {
         paint = false;
         $('body').unbind('touchmove');
     });
 }
-function st(){
-    $('#main_page').load('forms.html #select_button',function(){
-        renButton("logout");
-        $('#logout').click(function(){
-            window.location.reload();
-            delButton();
-        });
-
-        $('#adult').click(function(){
-            $('#main_page').load('forms.html #release_adult',function(){
-                renButton("back");
-                $('#back').click(load(st));
-                $("#canvas").bind('touchstart',drow);
-                $('#clear').click(clear);
-                $("#submit").click(submit_adult);
-            });
-        });
-
-        $('#child').click(function(){
-            $('#main_page').load('forms.html #release_child',function(){
-                renButton("back");
-                $('#back').click(st);
-                $("#canvas").bind('touchstart',drow);
-                $('#clear').click(clear);
-                $("#submit").click(submit_child);
-            });
-        });
-    });
-};
