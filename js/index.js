@@ -5,8 +5,6 @@ var name, cname, date, bdate, print, sign, contact, log, password, test, par;
 $(document).ready(function () {
 load('login_form');
 });
-
-
 $(document).on('click', '.data', function () {
     par = $(this).val();
     load(par);
@@ -43,7 +41,6 @@ $(document).on('touchstart', '#canvas', drow);
 function load(par) {
     $('#main_page').load('forms.html #'+par+'');
 }
-
 function login() {
     log = $("#login").val();
     password = document.getElementById("password").value;
@@ -93,10 +90,6 @@ function submit_child() {
     var json = JSON.stringify(obj);
     console.log(json);
 }
-
-
-
-
 function drow(e) {
     paint = true;
     e.preventDefault();
