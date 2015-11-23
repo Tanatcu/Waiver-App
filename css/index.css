@@ -6,6 +6,8 @@ body{
 button, input:focus{
     outline: none;
 }
+
+@media only screen and (orientation:landscape) {
 .button_form_login #login_button {
     margin: 10px;
     width: 45%;
@@ -162,9 +164,163 @@ inline_block_1 label {
 form {
     margin:8px;
 }
-@media only screen and (orientation:landscape) {
- /* стили для пейзажа */
 }
+
 @media only screen and (orientation:portrait) {
- /* стили для портрета */
+.button_form_login #login_button {
+    margin: 10px;
+    width: 45%;
+    font-size: 20px;
+    height: 45px;
+    border-radius: 10px;
+    background: #6a6a6a;
+    color: #fff;
+    border: 3px solid #829BAE;  
+}
+.button_form_login{
+    text-align: right;
+    width: 100%;
+    margin: 0 0 10px 0;
+}
+p {
+    font-size: 18px;
+}
+#login_form {
+    margin: 7%;
+    border: 3px solid #829BAE;
+    background: #fff;
+    border-radius: 10px;
+}
+.main_content, #main_content{
+    text-align: center;
+    width: auto;
+    height: auto;
+    margin: 25px auto;
+    position: relative;
+}
+#select_button {
+    text-align: center;
+}
+#child, #adult{
+    width: 60%;
+    font-size: 21px;
+    height: 55px;
+    border-radius: 20px;
+    
+}
+.button_form{
+    
+    width: 100%;
+    text-align: center;
+    
+    clear: both;
+    position: relative;
+}
+#login_form .button_form input {
+    margin: 10px;
+    width: 90%;
+    height: 45px;
+    border-radius: 10px;
+    border: 3px solid #829BAE;
+}
+#adult_form .button_form input {
+    margin:0 0 20px 0;
+}
+.button_form label {
+    margin:0px;
+}
+#birth_day {
+    width:40%;
+}
+button_form_head {
+    margin: 10px 0 0 0;
+}
+#header button{
+    margin: 10px 6px;
+    height: 24px;
+    background: #595858;
+    border-radius: 5px;
+    color: #aaaaaa;
+    border: 2px outset #666666;    
+}
+header {
+    text-align: left;
+    background:  linear-gradient(to bottom,#21598F, #5E7E9D, #21598F);
+    width: 100%;
+    //border:1px solid #666666;
+    position: fixed;
+    top:0px;
+    z-index: 1000;
+}
+.button_form button {
+    margin:20px 0;
+    height:50px;
+    width:150px;
+    border-radius:10px;
+    border:2px solid #666666;
+}
+.button_form_mini{
+    text-align: center;
+    width: 49%;
+    margin: 0 0 5px 0;
+    display: inline-block;
+}
+
+.button_form_mini button {
+    width: 85%;
+    font-size: 20px;
+    border-radius: 10px;
+    height: 40px;
+    border: 2px groove #666666;
+}
+.button_form_mini p{
+    margin: 0 0 0px 0;
+}
+#name_surname {
+    border-radius: 4px;
+    width: 50%;
+}
+input{
+    width: 98.5%;
+    height: 30px;
+    border-radius: 0px;
+    margin: 2px 0px;
+    border: 2px groove #666666;
+}
+#canvas {
+    border:2px solid #666666;
+    background: #FFFFFF;
+}
+#release_adult,#release_child {
+    text-align: justify;    
+}
+h3 {
+    text-align: center;
+}
+.inline_block {
+    margin: 20px 0 0 0;
+    width:210px;
+    display:inline-block;
+}
+inline_block input {
+    clear:both;
+}
+inline_block_1 label {
+    clear:both;
+}
+#date{
+    width: 60%;
+}
+#contact_info {
+    clear:right;
+}
+
+#clear img{
+    width:30px;
+    height:auto;
+}
+
+form {
+    margin:8px;
+}
 }

@@ -1,64 +1,76 @@
 var ctx, canvas, surname;
 var paint = false;
-var name, cname, date, bdate, print, sign, contact, log, password, test, par;
+var name, cname, date, bdate, print, sign, contact, log, password, test, par,access;
 
 $(document).ready(function () {
-load('login_form');
+    load('login_form');
 });
 $(document).on('click', '.data', function () {
     par = $(this).val();
     load(par);
-    renButton('back','select_button');
+    renButton('back', 'select_button');
 });
 $(document).on('click', '#login_button', function () {
     par = 0;
     par = $(this).val();
-    load(par);
-    login();
-    getButton('logout','logout','login_form');
+    var obj = {
+        "username": log = $("#login").val(),
+        "password": password = $("#password").val()
+    };
+    $.ajax({
+        url: 'http://yii/backend/web/index.php/auth-app/login-app',
+        type: 'POST',
+        data: obj,
+        success:function(data){
+            load(par);
+            getButton('logout', 'logout', 'login_form');
+            alert('Access allowed! '+data);
+        },
+        error: function (data) {
+            console.info(data);
+        }
+    });
 });
 $(document).on('click', '#logout', function () {
     par = $(this).val();
     load(par);
     delButton();
 });
-$(document).on('click','#back',function(){
+$(document).on('click', '#back', function () {
     par = 0;
     par = $(this).val();
     load(par);
-    renButton('logout','login_form');
+    renButton('logout', 'login_form');
 });
-$(document).on('click','.submit',function(){
+$(document).on('click', '.submit', function () {
     par = $(this).val();
-    if(par==="adult"){
+    if (par === "adult") {
         submit_adult();
-    }else{
+    } else {
         submit_child();
-    }  
+    }
 });
-$(document).on('click','.clear',clear);
+$(document).on('click', '.clear', clear);
 $(document).on('touchstart', '#canvas', drow);
 function load(par) {
-    $('#main_page').load('forms.html #'+par+'');
+    $('#main_page').load('forms.html #' + par + '');
 }
 function login() {
-    log = $("#login").val();
-    password = document.getElementById("password").value;
-    console.log(log + " <=> " + password);
+    
 }
-function getButton(text,clas,val) {
+function getButton(text, clas, val) {
     test = $('<button/>',
             {
                 text: text,
-                class:clas,
-                value:val,
+                class: clas,
+                value: val,
                 id: text
             });
 
     $("#header").append(test);
     return true;
 }
-function renButton(text,sit) {
+function renButton(text, sit) {
     $("#header button").prop('value', sit);
     $("#header button").prop('id', text);
     $("#header button").text(text);
