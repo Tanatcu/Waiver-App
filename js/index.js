@@ -27,7 +27,7 @@ $(document).on('click', '#login_button', function () {
             alert('Access allowed! '+data);
         },
         error: function (data) {
-            console.info(data);
+            alert('Access denied! '+data);
         }
     });
 });
