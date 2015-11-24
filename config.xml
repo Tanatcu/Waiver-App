@@ -9,6 +9,8 @@
     <content src="index.html"/>
     <access origin="*"/>
 
+    <uses-permission name="android.permission.INTERNET" gap:platform="android" />
+
     <plugin name="cordova-plugin-whitelist" version="1"/>
     <gap:plugin name="org.apache.cordova.splashscreen"/>
     <preference name="phonegap-version" value="3.5.0" />

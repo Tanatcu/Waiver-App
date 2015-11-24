@@ -16,7 +16,7 @@ button, input:focus{
     border-radius: 10px;
     background: #6a6a6a;
     color: #fff;
-    border: 3px solid #829BAE;  
+    /*border: 3px solid #829BAE;  */
 }
 .button_form_login{
     text-align: right;
@@ -62,7 +62,7 @@ p {
     width: 90%;
     height: 45px;
     border-radius: 10px;
-    border: 3px solid #829BAE;
+    /*border: 3px solid #829BAE;*/
 }
 #adult_form .button_form input {
     margin:0 0 20px 0;
@@ -98,7 +98,7 @@ header {
     height:50px;
     width:150px;
     border-radius:10px;
-    border:2px solid #666666;
+    /*border:2px solid #666666;*/
 }
 .button_form_mini{
     text-align: center;
@@ -112,7 +112,7 @@ header {
     font-size: 20px;
     border-radius: 10px;
     height: 40px;
-    border: 2px groove #666666;
+    /*border: 2px groove #666666;*/
 }
 .button_form_mini p{
     margin: 0 0 0px 0;
@@ -176,7 +176,7 @@ form {
     border-radius: 10px;
     background: #6a6a6a;
     color: #fff;
-    border: 3px solid #829BAE;  
+    /*border: 3px solid #829BAE;  */
 }
 .button_form_login{
     text-align: right;
@@ -258,7 +258,7 @@ header {
     height:50px;
     width:150px;
     border-radius:10px;
-    border:2px solid #666666;
+    /*border:2px solid #666666;*/
 }
 .button_form_mini{
     text-align: center;
