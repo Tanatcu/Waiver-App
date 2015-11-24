@@ -17,23 +17,23 @@ $(document).on('click', '#login_button', function () {
         "username": $("#login").val(),
         "password": $("#password").val()
     };
-    $.ajax({
-        url: 'http://yii/backend/web/index.php/auth-app/login-app',
-        type: 'POST',
-        data: obj,
-        success:function(data){
-            if(data){
+    //$.ajax({
+    //    url: 'http://yii/backend/web/index.php/auth-app/login-app',
+    //    type: 'POST',
+    //    data: obj,
+    //    success:function(data){
+    //        if(data){
                 load(par);
                 getButton('logout', 'logout', 'login_form');
                 alert('Access allowed!');
-            }else{
-                alert('Access denied! Wrong login or password! ');
-            }
-        },
-        error: function (msg) {
-            alert('Access denied! '+data.status);
-        }
-    });
+    //        }else{
+    //            alert('Access denied! Wrong login or password! ');
+    //        }
+    //    },
+    //    error: function (msg) {
+    //        alert('Access denied! '+data.status);
+    //    }
+    //});
 });
 $(document).on('click', '#logout', function () {
     par = $(this).val();
