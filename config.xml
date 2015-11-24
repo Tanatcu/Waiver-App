@@ -24,9 +24,6 @@
         <icon gap:qualifier="xhdpi" src="res/icon/android/icon-96-xhdpi.png"/>
     </platform>
 
-    
-    
-    
     <platform name="ios">   
         <icon gap:platform="ios" gap:qualifier="ldpi" src="res/icon/ios/icon-36-ldpi.png"/>
         <icon gap:platform="ios" gap:qualifier="mdpi" src="res/icon/ios/icon-48-mdpi.png"/>

@@ -1,6 +1,6 @@
 var ctx, canvas, surname;
 var paint = false;
-var name, cname, date, bdate, print, sign, contact, log, password, test, par,access;
+var name, cname, date, bdate, print, sign, contact, test, par,access,pass;
 
 $(document).ready(function () {
     load('login_form');
@@ -14,20 +14,24 @@ $(document).on('click', '#login_button', function () {
     par = 0;
     par = $(this).val();
     var obj = {
-        "username": log = $("#login").val(),
-        "password": password = $("#password").val()
+        "username": $("#login").val(),
+        "password": $("#password").val()
     };
     $.ajax({
         url: 'http://yii/backend/web/index.php/auth-app/login-app',
         type: 'POST',
         data: obj,
         success:function(data){
-            load(par);
-            getButton('logout', 'logout', 'login_form');
-            alert('Access allowed! '+data);
+            if(data){
+                load(par);
+                getButton('logout', 'logout', 'login_form');
+                alert('Access allowed!');
+            }else{
+                alert('Access denied! Wrong login or password! ');
+            }
         },
-        error: function (data) {
-            alert('Access denied! '+data);
+        error: function (msg) {
+            alert('Access denied! '+data.status);
         }
     });
 });
@@ -42,7 +46,7 @@ $(document).on('click', '#back', function () {
     load(par);
     renButton('logout', 'login_form');
 });
-$(document).on('click', '.submit', function () {
+$(document).on('click', '#submit', function () {
     par = $(this).val();
     if (par === "adult") {
         submit_adult();
@@ -50,7 +54,7 @@ $(document).on('click', '.submit', function () {
         submit_child();
     }
 });
-$(document).on('click', '.clear', clear);
+$(document).on('click', '#clear', clear);
 $(document).on('touchstart', '#canvas', drow);
 function load(par) {
     $('#main_page').load('forms.html #' + par + '');
