@@ -17,23 +17,23 @@ $(document).on('click', '#login_button', function () {
         "username": $("#login").val(),
         "password": $("#password").val()
     };
-    //$.ajax({
-    //    url: 'http://yii/backend/web/index.php/auth-app/login-app',
-    //    type: 'POST',
-    //    data: obj,
-    //    success:function(data){
-    //        if(data){
+    $.ajax({
+        url: 'http://192.168.0.105/backend/web/index.php/auth-app/login-app',
+        type: 'POST',
+        data: obj,
+        success:function(data){
+            if(data){
                 load(par);
                 getButton('logout', 'logout', 'login_form');
                 alert('Access allowed!');
-    //        }else{
-    //            alert('Access denied! Wrong login or password! ');
-    //        }
-    //    },
-    //    error: function (msg) {
-    //        alert('Access denied! '+data.status);
-    //    }
-    //});
+            }else{
+                alert('Access denied! Wrong login or password! ');
+            }
+        },
+        error: function (msg) {
+            alert('Access denied! '+msg.status);
+        }
+    });
 });
 $(document).on('click', '#logout', function () {
     par = $(this).val();
@@ -41,7 +41,6 @@ $(document).on('click', '#logout', function () {
     delButton();
 });
 $(document).on('click', '#back', function () {
-    par = 0;
     par = $(this).val();
     load(par);
     renButton('logout', 'login_form');
@@ -50,7 +49,8 @@ $(document).on('click', '#submit', function () {
     par = $(this).val();
     if (par === "adult") {
         submit_adult();
-    } else {
+    }
+    if(par==="child"){
         submit_child();
     }
 });
@@ -58,9 +58,6 @@ $(document).on('click', '#clear', clear);
 $(document).on('touchstart', '#canvas', drow);
 function load(par) {
     $('#main_page').load('forms.html #' + par + '');
-}
-function login() {
-    
 }
 function getButton(text, clas, val) {
     test = $('<button/>',
@@ -86,25 +83,52 @@ function clear() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
 function submit_adult() {
-    var obj = {"name": $("#name_surname").val(),
+    var obj = {"fullname": $("#name_surname").val(),
         "date": $("#date").val(),
-        "print": $("#printed_name").val(),
+        "printname": $("#printed_name").val(),
         "sign": document.getElementById("canvas").toDataURL()};
-    var json = JSON.stringify(obj);
-    console.log(json);
+    $.ajax({
+        url: 'http://192.168.0.105/backend/web/index.php/auth-app/send-adult',
+        type: 'POST',
+        data: obj,
+        success:function(data){
+            if(data){
+                load("release_adult");
+                alert('Data send!'+data);
+            }else{
+                alert('Data not send! Not all fields are filled!');
+            }
+        },
+        error: function (msg) {
+            alert('Data not send! '+msg.status);
+        }
+    });
 }
 function submit_child() {
     var obj = {
-        "name": $("#name_surname").val(),
-        "cname": $("#child_name").val(),
+        "parentname": $("#name_surname").val(),
+        "childname": $("#child_name").val(),
         "date": $("#date").val(),
-        "bdate": $("#birth_day").val(),
-        "print": $("#printed_name").val(),
-        "contact": $("#contact_info").val(),
+        "childbirth": $("#birth_day").val(),
+        "printname": $("#printed_name").val(),
+        "contactinfo": $("#contact_info").val(),
         "sign": document.getElementById("canvas").toDataURL()};
-
-    var json = JSON.stringify(obj);
-    console.log(json);
+    $.ajax({
+        url: 'http://192.168.0.105/backend/web/index.php/auth-app/send-child',
+        type: 'POST',
+        data: obj,
+        success:function(data){
+            if(data){
+                load("release_child");
+                alert('Data send!');
+            }else{
+                alert('Data not send! Not all fields are filled! ');
+            }
+        },
+        error: function (msg) {
+            alert('Data not send! '+msg.status);
+        }
+    });
 }
 function drow(e) {
     paint = true;
