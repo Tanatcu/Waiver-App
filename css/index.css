@@ -1,103 +1,396 @@
-body{
-    background: #BBD2FA;
+body {
+    color: #000;
+    margin: 75px 0 0 0;
+    background: url(../img/back.jpg) fixed;
+    border: none;
 }
-#login_form {
-    margin-top: 100px;
+
+button:focus, input:focus {
+    outline: none;
 }
-.main_content, #main_content{
-    text-align: center;
-    width: auto;
-    height: auto;
-    margin: 25px auto;
-    position: relative;
+
+@media only screen and (orientation: portrait) {
+    .button_form_login #login_button {
+        margin: 10px 4% 10px 10px;
+        width: 45%;
+        font-size: 30px;
+        height: 45px;
+        border-radius: 10px;
+        background: #6a6a6a;
+        color: #fff;
+        border: none;
+    }
+
+    .button_form_login {
+        text-align: right;
+        width: 100%;
+        margin: 0 0 10px 0;
+    }
+
+    p {
+        font-size: 22px;
+    }
+
+    #login_form {
+        width: 100%;
+        background: rgba(0, 0, 0, 0.20);
+        border-radius: 10px;
+        border: none;
+    }
+
+    .main_content, #main_content {
+        text-align: center;
+        width: auto;
+        height: auto;
+        margin: 25px auto;
+        position: relative;
+    }
+
+    #select_button {
+        text-align: center;
+    }
+
+    #child, #adult {
+        width: 60%;
+        font-size: 21px;
+        height: 55px;
+        border: none;
+        border-radius: 20px;
+
+    }
+
+    .button_form {
+
+        width: 100%;
+        text-align: center;
+
+        clear: both;
+        position: relative;
+    }
+
+    #login_form .button_form input {
+        margin: 10px;
+        padding-left: 8px;
+        width: 90%;
+        height: 45px;
+        border-radius: 10px;
+        border: none;
+        font-size: 25px;
+    }
+
+    #adult_form .button_form input {
+        margin: 0 0 20px 0;
+    }
+
+    .button_form label {
+        margin: 0px;
+    }
+
+    #birth_day {
+        width: 40%;
+    }
+
+    button_form_head {
+        margin: 10px 0 0 0;
+    }
+
+    #header button {
+        margin: 10px 6px;
+        height: 40px;
+        font-size: larger;
+        background: #595858;
+        border-radius: 16px;
+        color: #aaaaaa;
+        border: none;
+    }
+
+    header {
+        text-align: left;
+        background: rgb(189, 189, 189);
+        width: 100%;
+        position: fixed;
+        top: 0px;
+    }
+
+    .button_form button {
+        margin: 20px 0;
+        height: 50px;
+        width: 150px;
+        border-radius: 10px;
+        border: none;
+
+    }
+
+    .button_form_mini {
+        text-align: center;
+        width: 49%;
+        margin: 0 0 5px 0;
+        display: inline-block;
+    }
+
+    .button_form_mini button {
+        width: 85%;
+        font-size: 18px;
+        border-radius: 10px;
+        height: 40px;
+        margin: 0 0 10px 0;
+        border: none;
+    }
+
+    .button_form_mini p {
+        margin: 0 0 0px 0;
+    }
+
+    #name_surname {
+        border-radius: 4px;
+        width: 50%;
+        border: none;
+    }
+
+    input {
+        padding-left: 8px;
+        width: 98%;
+        height: 30px;
+        border-radius: 0px;
+        margin: 7px 0px;
+        border: none;
+        font-size: 18px;
+    }
+
+    #canvas {
+        border: none;
+        background: #ffffff;
+    }
+
+    #just, #text {
+        text-align: justify;
+    }
+
+    h3 {
+        text-align: center;
+    }
+
+    .inline_block {
+        margin: 20px 0 0 0;
+        width: 210px;
+        display: inline-block;
+    }
+
+    inline_block input {
+        clear: both;
+    }
+
+    inline_block_1 label {
+        clear: both;
+    }
+
+    #date {
+        width: 98%;
+    }
+
+    #contact_info {
+        clear: right;
+    }
+
+    #clear img {
+        width: 30px;
+        height: auto;
+    }
+
+    form {
+        margin: 15px;
+    }
 }
-#child, #adult{
-    width: 60%;
-    
-}
-.button_form{
-    width: 100%;
-    text-align: center;
-    //height:50px;
-    clear: both;
-    position: relative;
-}
-#login_form .button_form input {
-    margin: 0 0 60px 0;
-    height:45px;
-    border-radius:10px;
-    border:2px solid #666666;
-}
-#adult_form .button_form input {
-    margin:0 0 20px 0;
-}
-.button_form label {
-    margin:0px;
-}
-.button_form button {
-    margin:20px 0;
-    height:50px;
-    width:150px;
-    border-radius:10px;
-    border:2px solid #666666;
-}
-.button_form_mini{
-    text-align: center;
-    width: 45%;
-    display: inline-block;
-}
-.button_form_mini button {
-    width: 90px;
-    border-radius: 10px;
-    height: 30px;
-    border: 2px groove #666666;
-}
-.button_form_mini p{
-    margin: 0 0 0px 0;
-}
-input{
-    width: 150px;
-    border-radius: 3px;
-    margin: 2px 0px;
-    border: 2px groove #666666;
-}
-#canvas {
-    border:2px solid #666666;
-    background: #FFFFFF;
-}
-#release_adult,#release_child {
-    text-align: justify;
-}
-h3 {
-    text-align: center;
-}
-.inline_block {
-    margin: 20px 0 0 0;
-    width:210px;
-    display:inline-block;
-}
-inline_block input {
-    clear:both;
-}
-inline_block_1 label {
-    clear:both;
-}
-.exec {
-    text-align:center;
-}
-#contact_info {
-    clear:right;
-}
-#contact_info, #printed_name {
-    width:90%;
-}
-#clear img{
-    width:30px;
-    height:auto;
-}
-@media only screen and (orientation:landscape) {
- /* стили для пейзажа */
-}
-@media only screen and (orientation:portrait) {
- /* стили для портрета */
+
+@media only screen and (orientation: landscape) {
+    .button_form_login #login_button {
+        margin: 10px 4% 10px 10px;
+        width: 45%;
+        font-size: 30px;
+        height: 45px;
+        border-radius: 10px;
+        background: #6a6a6a;
+        color: #fff;
+        border: none;
+    }
+
+    .button_form_login {
+        text-align: right;
+        width: 100%;
+        margin: 0 0 10px 0;
+    }
+
+    p {
+        font-size: 22px;
+    }
+
+    #login_form {
+        /*margin: 0 7%;*/
+        width: 100%;
+        background: rgba(0, 0, 0, 0.20);
+        border-radius: 10px;
+        border: none;
+    }
+
+    .main_content, #main_content {
+        text-align: center;
+        width: auto;
+        height: auto;
+        margin: 25px auto;
+        position: relative;
+    }
+
+    #select_button {
+        text-align: center;
+    }
+
+    #child, #adult {
+        width: 60%;
+        font-size: 21px;
+        height: 55px;
+        border-radius: 20px;
+        border: none;
+
+    }
+
+    .button_form {
+
+        width: 100%;
+        text-align: center;
+
+        clear: both;
+        position: relative;
+    }
+
+    #login_form .button_form input {
+        margin: 10px;
+        padding-left: 8px;
+        width: 90%;
+        height: 45px;
+        border-radius: 10px;
+        border: none;
+        font-size: 25px;
+    }
+
+    #adult_form .button_form input {
+        margin: 0 0 20px 0;
+    }
+
+    .button_form label {
+        margin: 0px;
+    }
+
+    #birth_day {
+        width: 40%;
+    }
+
+    button_form_head {
+        margin: 10px 0 0 0;
+    }
+
+    #header button {
+        margin: 10px 6px;
+        height: 40px;
+        font-size: larger;
+        background: #595858;
+        border-radius: 16px;
+        color: #aaaaaa;
+        border: none;
+    }
+
+    header {
+        text-align: left;
+        background: rgb(189, 189, 189);
+        width: 100%;
+        position: fixed;
+        top: 0px;
+    }
+
+    .button_form button {
+        margin: 20px 0;
+        height: 50px;
+        width: 150px;
+        border-radius: 10px;
+        border: none;
+    }
+
+    .button_form_mini {
+        text-align: center;
+        width: 49%;
+        margin: 0 0 5px 0;
+        display: inline-block;
+    }
+
+    .button_form_mini button {
+        width: 85%;
+        font-size: 18px;
+        border-radius: 10px;
+        height: 40px;
+        margin: 0 0 10px 0;
+        border: none;
+    }
+
+    .button_form_mini p {
+        margin: 0 0 0px 0;
+    }
+
+    #name_surname {
+        border-radius: 4px;
+        border: none;
+        width: 50%;
+    }
+
+    input {
+        padding-left: 8px;
+        width: 98%;
+        height: 30px;
+        border-radius: 0px;
+        margin: 7px 0px;
+        font-size: 18px;
+        border: none;
+    }
+
+    #canvas {
+        border: none;
+        background: #FFFFFF;
+    }
+
+    #just, #text {
+        text-align: justify;
+    }
+
+    h3 {
+        text-align: center;
+    }
+
+    .inline_block {
+        margin: 20px 0 0 0;
+        width: 210px;
+        display: inline-block;
+    }
+
+    inline_block input {
+        clear: both;
+    }
+
+    inline_block_1 label {
+        clear: both;
+    }
+
+    #date {
+        width: 98%;
+    }
+
+    #contact_info {
+        clear: right;
+    }
+
+    #clear img {
+        width: 30px;
+        height: auto;
+    }
+
+    form {
+        margin: 15px;
+    }
 }
