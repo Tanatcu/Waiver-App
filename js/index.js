@@ -1,7 +1,7 @@
 var ctx, canvas, surname;
 var paint = false;
-var name, cname, date, bdate, print, sign, contact, test, par,access,pass;
-
+var name, cname, date, bdate, print, sign, contact, test, par, access, pass;
+var Reg61 = new RegExp("[0-9]");
 $(document).ready(function () {
     load('login_form');
 });
@@ -18,20 +18,20 @@ $(document).on('click', '#login_button', function () {
         "password": $("#password").val()
     };
     $.ajax({
-        url: 'http://192.168.0.105/backend/web/index.php/auth-app/login-app',
+        url: 'http://192.168.0.107/backend/web/index.php/auth-app/login-app',
         type: 'POST',
         data: obj,
-        success:function(data){
-            if(data){
+        success: function (data) {
+            if (data) {
                 load(par);
                 getButton('logout', 'logout', 'login_form');
-                alert('Access allowed!');
-            }else{
-                alert('Access denied! Wrong login or password! ');
+
+            } else {
+                alert('Wrong login or password!');
             }
         },
         error: function (msg) {
-            alert('Access denied! '+msg.status);
+            alert('Access denied! ' + msg.status);
         }
     });
 });
@@ -50,7 +50,7 @@ $(document).on('click', '#submit', function () {
     if (par === "adult") {
         submit_adult();
     }
-    if(par==="child"){
+    if (par === "child") {
         submit_child();
     }
 });
@@ -61,12 +61,12 @@ function load(par) {
 }
 function getButton(text, clas, val) {
     test = $('<button/>',
-            {
-                text: text,
-                class: clas,
-                value: val,
-                id: text
-            });
+        {
+            text: text,
+            class: clas,
+            value: val,
+            id: text
+        });
 
     $("#header").append(test);
     return true;
@@ -83,24 +83,35 @@ function clear() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
 function submit_adult() {
-    var obj = {"fullname": $("#name_surname").val(),
+    var obj = {
+        "fullname": $("#name_surname").val(),
         "date": $("#date").val(),
         "printname": $("#printed_name").val(),
-        "sign": document.getElementById("canvas").toDataURL()};
+        "sign": document.getElementById("canvas").toDataURL()
+    };
+    if (Reg61.test(obj.fullname)) {
+        alert("Full name must be only letters");
+        return false;
+    }
+    if (Reg61.test(obj.printname)) {
+        alert("Print name must be only letters");
+        return false;
+    }
+
     $.ajax({
-        url: 'http://192.168.0.105/backend/web/index.php/auth-app/send-adult',
+        url: 'http://192.168.0.107/backend/web/index.php/auth-app/send-adult',
         type: 'POST',
         data: obj,
-        success:function(data){
-            if(data){
-                load("release_adult");
-                alert('Data send!'+data);
-            }else{
-                alert('Data not send! Not all fields are filled!');
+        success: function (data) {
+            if (data) {
+                load("select_button");
+                alert('Data sent!');
+            } else {
+                alert('Data not sent! Not all fields are filled!');
             }
         },
         error: function (msg) {
-            alert('Data not send! '+msg.status);
+            alert('Data not sent! ' + msg.status);
         }
     });
 }
@@ -112,21 +123,35 @@ function submit_child() {
         "childbirth": $("#birth_day").val(),
         "printname": $("#printed_name").val(),
         "contactinfo": $("#contact_info").val(),
-        "sign": document.getElementById("canvas").toDataURL()};
+        "sign": document.getElementById("canvas").toDataURL()
+    };
+    if (Reg61.test(obj.parentname)) {
+        alert("Full name of parents must be only letters");
+        return false;
+    }
+    if (Reg61.test(obj.childname)) {
+        alert("Full name of child must be only letters");
+        return false;
+    }
+    if (Reg61.test(obj.printname)) {
+        alert("Print name must be only letters");
+        return false;
+    }
+    console.log(obj.sign);
     $.ajax({
-        url: 'http://192.168.0.105/backend/web/index.php/auth-app/send-child',
+        url: 'http://192.168.0.107/backend/web/index.php/auth-app/send-child',
         type: 'POST',
         data: obj,
-        success:function(data){
-            if(data){
-                load("release_child");
-                alert('Data send!');
-            }else{
-                alert('Data not send! Not all fields are filled! ');
+        success: function (data) {
+            if (data) {
+                load("select_button");
+                alert('Data sent!');
+            } else {
+                alert('Data not sent! Not all fields are filled! ');
             }
         },
         error: function (msg) {
-            alert('Data not send! '+msg.status);
+            alert('Data not sent! ' + msg.status);
         }
     });
 }
@@ -135,6 +160,7 @@ function drow(e) {
     e.preventDefault();
 
     canvas = document.getElementById('canvas');
+
     ctx = canvas.getContext('2d');
 
     var touch = event.targetTouches[0];
@@ -160,3 +186,8 @@ function drow(e) {
         $('body').unbind('touchmove');
     });
 }
+
+//function popup(text, status) {
+//    $('.popup').css('visibility', status);
+//    $('.popup').text(text);
+//}
