@@ -18,7 +18,7 @@ $(document).on('click', '#login_button', function () {
         "password": $("#password").val()
     };
     $.ajax({
-        url: 'http://192.168.0.107/backend/web/index.php/auth-app/login-app',
+        url: 'http://192.168.0.104/backend/web/index.php/auth-app/login-app',
         type: 'POST',
         data: obj,
         success: function (data) {
@@ -99,7 +99,7 @@ function submit_adult() {
     }
 
     $.ajax({
-        url: 'http://192.168.0.107/backend/web/index.php/auth-app/send-adult',
+        url: 'http://192.168.0.104/backend/web/index.php/auth-app/send-adult',
         type: 'POST',
         data: obj,
         success: function (data) {
@@ -139,7 +139,7 @@ function submit_child() {
     }
     console.log(obj.sign);
     $.ajax({
-        url: 'http://192.168.0.107/backend/web/index.php/auth-app/send-child',
+        url: 'http://192.168.0.104/backend/web/index.php/auth-app/send-child',
         type: 'POST',
         data: obj,
         success: function (data) {
@@ -186,8 +186,3 @@ function drow(e) {
         $('body').unbind('touchmove');
     });
 }
-
-//function popup(text, status) {
-//    $('.popup').css('visibility', status);
-//    $('.popup').text(text);
-//}
