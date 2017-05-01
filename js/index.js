@@ -2,6 +2,7 @@ var ctx, canvas, surname;
 var paint = false;
 var name, cname, date, bdate, print, sign, contact, test, par, access, pass;
 var Reg61 = new RegExp("[0-9]");
+
 $(document).ready(function () {
     load('login_form');
 });
