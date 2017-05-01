@@ -26,7 +26,6 @@ $(document).on('click', '#login_button', function () {
             if (data) {
                 load(par);
                 getButton('logout', 'logout', 'login_form');
-
             } else {
                 alert('Wrong login or password!');
             }
@@ -55,8 +54,10 @@ $(document).on('click', '#submit', function () {
         submit_child();
     }
 });
+
 $(document).on('click', '#clear', clear);
 $(document).on('touchstart', '#canvas', drow);
+
 function load(par) {
     $('#main_page').load('forms.html #' + par + '');
 }
